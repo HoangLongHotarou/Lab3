@@ -1,6 +1,7 @@
 ﻿using Lab3.Enum;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -68,7 +69,7 @@ namespace Lab3.Class
                     return first.ID == element;
                 else if (type == TypeOfSortOrSearch.HoTem)
                     return first.Name.Trim().ToLower() == element.Trim().ToLower();
-                return first.DateOfBirth == DateTime.Parse(element);
+                return first.DateOfBirth == DateTime.ParseExact(element, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             });
         }
 
